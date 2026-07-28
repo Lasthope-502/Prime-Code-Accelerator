@@ -1,0 +1,26 @@
+# Prime Code Accelerator — Project Config
+# Isko apne project root me `accel.toml` naam se copy karo aur customize karo
+
+[general]
+language = "auto"   # options: "auto", "python", "node"
+auto_accelerate = false
+
+[profiler]
+sample_interval_ms = 100
+report_output = "accel_report.json"
+
+[thresholds]
+high_cpu_percent = 80.0
+high_memory_mb = 500.0
+slow_execution_ms = 5000
+
+[python]
+binary = ""
+fast_ops_path = ""
+
+[node]
+binary = ""
+fast_ops_path = "./fast_ops_node"
+
+[patterns]
+custom_patterns_file = ""
