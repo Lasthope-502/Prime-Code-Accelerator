@@ -1,0 +1,14 @@
+{
+  "name": "fast_ops_node",
+  "version": "0.1.0",
+  "main": "index.js",
+  "napi": {
+    "name": "fast_ops_node"
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "^2.18.0"
+  },
+  "scripts": {
+    "build": "napi build --release"
+  }
+}
