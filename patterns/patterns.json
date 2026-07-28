@@ -1,0 +1,58 @@
+[
+  {
+    "name": "sum_of_squares_loop",
+    "description": "'total += i*i' accumulation loop detected",
+    "regex": "for\\s+(\\w+)\\s+in\\s+range\\([^)]*\\)\\s*:\\s*\\n\\s*\\w+\\s*\\+=\\s*\\1\\s*\\*\\s*\\1",
+    "rust_fn": "sum_of_squares",
+    "category": "numeric_loop"
+  },
+  {
+    "name": "range_sum_loop",
+    "description": "simple 'total += i' accumulation loop detected",
+    "regex": "for\\s+(\\w+)\\s+in\\s+range\\([^)]*\\)\\s*:\\s*\\n\\s*\\w+\\s*\\+=\\s*\\1\\s*(\\n|$)",
+    "rust_fn": "fast_range_sum",
+    "category": "numeric_loop"
+  },
+  {
+    "name": "fibonacci",
+    "description": "Fibonacci-style iterative sequence detected",
+    "regex": "\\w+\\s*,\\s*\\w+\\s*=\\s*\\w+\\s*,\\s*\\w+\\s*\\+\\s*\\w+",
+    "rust_fn": "fibonacci",
+    "category": "numeric_loop"
+  },
+  {
+    "name": "nested_loop_matrix",
+    "description": "Nested for-loops detected (possible matrix/2D operation) — O(n²) or worse, strong Rust offload candidate",
+    "regex": "for\\s+\\w+\\s+in\\s+range\\([^)]*\\)\\s*:\\s*\\n\\s*for\\s+\\w+\\s+in\\s+range\\([^)]*\\)\\s*:",
+    "rust_fn": "matrix_multiply",
+    "category": "nested_loop"
+  },
+  {
+    "name": "string_concat_loop",
+    "description": "String concatenation in a loop detected — very slow in Python (O(n²)), use ''.join() or Rust",
+    "regex": "for\\s+\\w+\\s+in\\s+.*:\\s*\\n\\s*\\w+\\s*\\+=\\s*(str\\(|f[\"']|[\"'])",
+    "rust_fn": "fast_string_join",
+    "category": "string_ops"
+  },
+  {
+    "name": "list_append_loop",
+    "description": "list.append() inside a loop — consider list comprehension or Rust vector processing",
+    "regex": "for\\s+\\w+\\s+in\\s+.*:\\s*\\n\\s*\\w+\\.append\\(",
+    "rust_fn": "fast_collect",
+    "category": "collection_ops"
+  },
+  {
+    "name": "prime_check_loop",
+    "description": "Prime number checking pattern detected — CPU-heavy, excellent Rust/parallel candidate",
+    "regex": "for\\s+\\w+\\s+in\\s+range\\(2\\s*,",
+    "rust_fn": "count_primes",
+    "category": "numeric_loop"
+  },
+  {
+    "name": "dict_counting_loop",
+    "description": "Manual dict counting pattern (word/frequency count) — consider collections.Counter or Rust HashMap",
+    "regex": "if\\s+\\w+\\s+(not\\s+)?in\\s+\\w+\\s*:\\s*\\n\\s*\\w+\\[\\w+\\]\\s*(\\+=|=)",
+    "rust_fn": "fast_word_count",
+    "category": "collection_ops"
+  }
+]
