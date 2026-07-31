@@ -166,6 +166,7 @@ Think of it like a person walking on unsupported stairs versus:
 
 This is implemented via the `--scaling-test` flag, which runs the same workload at increasing sizes (1M → 10M → 50M items) and shows all three tiers side by side, proving this scaling behavior with real numbers rather than theory.
 ---
+
 n = 1,000,000
 Python : 0.1200s
 Rust (single) : 0.0080s (15.0x)
